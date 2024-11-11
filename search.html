@@ -2,9 +2,9 @@
 <html>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+
 <head>
-	
-    <title>Login</title>
+    <title>SEARCH</title>
 <style>
 body {
   font-family: "comic sans MS";
@@ -59,20 +59,36 @@ body {
   color: black;
 }
 </style>
+
 </head>
 <body>
-    <h2>What to Watch</h2>
-    <form method="POST" action="login.php">
-        <label>User Name:</label>
-        <input type="username" name="username" required><br><br>
-        
-        <label>Password:</label>
-        <input type="password" name="password" required><br><br>
-        
-        <button type="submit">Login</button>
-    </form>
 
-<a href="register.php">
-        <button type="button">Create Account</button>
-    </a>
-</body></html>
+    <div class="header">
+  		<h1>Movie Search Page</h1>
+  		<p></p>
+        <p>   Fill in the form to Search the Database  </p>
+                <form action="search.php" method="post">
+        	<label for="myTitle">Title:</label><br>
+        	<input type="text" id="myTitle" name="myTitle"><br><br>
+        	<label for="Year">Year:</label><br>
+        	<input type="text" id="Year" name="Year"><br><br>
+        	<label for="Genre">Genre:</label><br>
+        	<input type="text" id="Genre" name="Genre"><br><br>            
+            <label for="Rating">Rating:</label><br>
+        	<input type="text" id="Rating" name="Rating"><br><br>
+        	<button type="submit">SUBMIT SEARCH</button>
+    	</form>
+        <h1></h1>
+	</div>
+
+	<div class="navbar">
+  	<a 
+            <button onclick="window.location.href='search.html';">Search</button>
+        </a>   
+        <a 
+            <button>My Lists</button>
+        </a>    
+        </div>
+
+</body>
+</html>

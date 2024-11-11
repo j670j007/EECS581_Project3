@@ -1,4 +1,5 @@
 <?php
+session_start();
 // Database connection parameters
 $servername = "localhost";
 $username = "root";
@@ -47,29 +48,41 @@ if (count($whereClauses) > 0) {
 // Debugging: Output the generated query for testing
 //echo "<p><strong>Generated Query:</strong> $query</p>";
 
-// Debugging: Display each input field value to verify POST data
-//echo "<p><strong>Debugging Input Data:</strong><br>";
-//echo "Title: " . htmlspecialchars($myTitle) . "<br>";
-//echo "Year: " . htmlspecialchars($Year) . "<br>";
-//echo "Genre: " . htmlspecialchars($Genre) . "<br>";
-//echo "Rating: " . htmlspecialchars($Rating) . "<br></p>";
-
 // Execute the query
 $result = $conn->query($query);
 
+// Debugging: Display each input field value to verify POST data
+//echo "<p><strong>Debugging Input Data:</strong><br>";
+
+$movies = [];
 if ($result && $result->num_rows > 0) {
-    // Output results
-    echo "<h2>Search Results:</h2>";
     while($row = $result->fetch_assoc()) {
-        echo "Title: " . htmlspecialchars($row["myTitle"]) . "<br>";
-        echo "Year: " . htmlspecialchars($row["Year"]) . "<br>";
-        echo "Genre: " . htmlspecialchars($row["Genre"]) . "<br>";
-        echo "Rating: " . htmlspecialchars($row["Rating"]) . "<br><br>";
+	$movies[] = [ 
+		'title' => htmlspecialchars($row['myTitle']), 
+		'year' => htmlspecialchars($row['Year']), 
+		'genre' => htmlspecialchars($row['Genre']), 
+		'rating' => htmlspecialchars($row['Rating']) 
+	];        
     }
 } else {
-    echo "No results found.";
+    	
+    $movies[] = ['title' => 'No results found', 'year' => '', 'genre' => '', 'rating' => ''];
 }
+//echo "</p>";
+
+// Debugging: Check session variable content 
+//echo "<p><strong>Session Data:</strong>//<br>"; 
+//print_r($movies); 
+//echo "</p>"; 
 
 // Close connection
 $conn->close();
+
+// Store results in session variable 
+$_SESSION['movies'] = $movies; 
+
+
+// Redirect to results page 
+header("Location: results.php"); 
+exit;
 ?>
