@@ -1,0 +1,95 @@
+<!-- Team 17 - Brisa Andrade-->
+<!--Project 2: MovieList , 581 Software Engineering II, 11.08.2024 -->
+<!-- UserLists.html-->
+
+<!--
+* Web page displays lists that a user has created. It allows for a list to be created, edited, and deleted.
+-->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- Allows for use of Google fonts IBM Plex Sans and Baumans in the Website -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Baumans&family=IBM+Plex+Sans&display=swap" rel="stylesheet">
+
+    <!-- Connects css stylesheet to the current html file -->
+    <link rel="stylesheet" type="text/css" href="MovieListStyle.css">
+    <link rel="stylesheet" type="text/css" href="MovieListPopupStyle.css">
+
+    <script src="UserLogOn.js" type="text/javascript"></script>
+    <script src="MovieLists.js" type="text/javascript"></script> <!-- JS file to fetch and display lists -->
+
+</head>
+
+<body>
+
+<!-- Outer container meant to control window size -->
+<div class="window">
+
+    <!-- Container holding elements for the navigation tab -->
+    <div class="navigationtab">
+        <p>MovieList</p>
+        <!-- Input Field that allows user to search the database -->
+        <input type="text" placeholder="Search MovieList...">
+
+        <!-- Links to other parts of the website -->
+        <a href="DiscoverPage.html">Discover</a>
+        <a href="RandomMoviePickerPage.html">Random Movie</a>
+        <a href="UserListPage.html">My Lists</a>
+        <a href="UserProfilePage.html">My Profile</a>
+
+        <!-- Button that allows for a user to log in or sign up -->
+        <button id="logInButton" type="button" onclick="logOut()">log out</button>
+        
+    </div>
+
+    <div class="accountPopup" id="accountStart">
+        <form class="accountForm">
+            <button type="button" class="closeBtn" onclick="popUpClose('accountStart')"> X </button>
+            <p> Already have an account?</p>
+            <button type="button" class="loginBtn" onclick="userLogin()"> Log In </button>
+            <p>Ready to Start?</p>
+            <button type="button" class="signupBtn" onclick="userSignup()">Create Account</button>
+        </form>
+    </div> <!-- end accountPopup -->
+
+    <div class="loginPopup" id="userLoginForm">
+        <form class="loginForm">
+            <!-- action = PHP form to connect database!-->
+            <button type="button" class="closeBtn" onclick="popUpClose('userLoginForm')"> X </button>
+            <p id="emailLabel"> email<br></p>
+            <input id="emailText" type="text" placeholder=" ">
+            <p id="passwordLabel"><br>password</p>
+            <input id="passwordText" type="password" placeholder=" ">
+            <button type="button" class="login" onclick="logIn()"> Log In </button>
+        </form>
+    </div> <!-- end loginPopup -->
+
+    <div class="signupPopup" id="userSignupForm">
+        <form class="signupForm">
+            <!-- action = PHP form to connect database!-->
+            <button type="button" class="closeBtn" onclick="popUpClose('userSignupForm')"> X </button>
+            <p id="signupHeader">REGISTER NOW</p>
+            <p id="signupEmailLabel">enter a valid email</p>
+            <input id="signupEmailText" type="text" placeholder=" ">
+            <p id="signupUsernameLabel">enter a username</p>
+            <input id="signupUsernameText" type="text" placeholder=" ">
+            <p id="signupPasswordLabel">enter a valid password</p>
+            <input id="signupPasswordText" type="password" placeholder=" ">
+            <p id="retypePasswordLabel">retype password</p>
+            <input id="retypePasswordText" type="password" placeholder=" ">
+            <button type="button" class="signup" onclick="userSignup()"> Sign Up! </button>
+        </form>
+    </div><!-- end signupPopup -->
+
+    <div class="test">
+        <h2>Your Lists will be here!</h2>
+        <select id="userLists" size="10" style="width: 300px;">
+            <!-- JavaScript will populate this list box -->
+        </select>
+    </div>
+
+</body>
+</html>

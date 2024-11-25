@@ -1,0 +1,94 @@
+/* Team 17 - Brisa Andrade, 
+* Project 2: MovieList , 581 Software Engineering II, 10.27.2024 -->
+* MovieListStyle.css
+* This file is made up of the CCS Styling used for MovieList Website
+*/
+
+
+        .baumans-regular {
+        font-family: "Baumans", system-ui;
+        font-weight: 400;
+        font-style: normal;
+        }
+
+        .ibm-plex-sans-regular {
+        font-family: "IBM Plex Sans", sans-serif;
+        font-weight: 400;
+        font-style: normal;
+        }
+
+
+        body{
+        background-color: 2B2731;
+        }
+
+        .window{
+            height:100%;
+            weight:100%;
+        }
+
+        .navigationtab p{
+            color: 9058D8;
+            font-family:'Baumans',regular;
+            font-size: 44px;
+            text-decoration: none;
+            display: inline;
+            position:relative;
+            left:5;
+            padding: 15px;
+        }
+
+         .navigationtab a{
+            text-decoration:none;
+            color: 9058D8;
+            font-size: 16px;
+            letter-spacing: 1px;
+            padding: 20px;
+            font-family:"IBM Plex Sans", sans-serif;
+
+            position: relative;
+            left:250;
+            }
+        
+
+        .navigationtab button{
+            background-color: 9058D8;
+            border: none;
+            color:CEC3D3;
+            text-algin: center;
+            font-size: 22px;
+            font-family: "Baumans", regular;
+            height: 45;
+            width:100;
+            border-radius: 8px;
+
+            position: relative;
+            top:5;
+            left:275;
+        }
+
+        .navigationtab{
+            position: sticky;
+            top:0;
+        }
+
+        .navigationtab input[type=text]{
+            background-color: 372C43;
+            color: CEC3D3;
+            border:none;
+            border-radius: 30px;
+            height: 35;
+            width: 500;
+            padding: 10px;
+
+            position: relative;
+            left: 30;
+            
+        }
+
+        .test h2{
+            font-family:"Baumans", regular;
+            font-size: 44px;
+            color: CEC3D3;
+            text-align:center;
+            }

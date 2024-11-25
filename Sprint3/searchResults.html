@@ -1,0 +1,144 @@
+<!--/* Team 17 - Brisa Andrade, 
+* Project 3: MovieList , 581 Software Engineering II, 11.07.2024 -->
+<!-- * searchResults.html
+* Web page displays the results of a user query on their screen
+*/ -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Results Page</title>
+    <script>
+        function fetchResults() {
+            console.log('Fetching results...');
+            fetch('movies.json')
+                .then(response => {
+                    console.log('Response received:', response);
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    console.log('Data received:', data);
+                    const resultsContainer = document.getElementById('results');
+                    resultsContainer.innerHTML = ''; // Clear previous results
+
+                    if (data.length === 0) {
+                        console.log('No results found.');
+                        resultsContainer.innerHTML = '<p>No results found.</p>';
+                        return;
+                    }
+
+                    data.forEach(movie => {
+                        console.log(`Adding movie: ${movie.myTitle}`);
+                        const option = document.createElement('option');
+                        option.textContent = `${movie.myTitle} - ${movie.Year} - ${movie.Genre} - ${movie.Rating}`;
+                        resultsContainer.appendChild(option);
+                    });
+                })
+                .catch(error => {
+                    console.error('Error fetching data:', error);
+                    const resultsContainer = document.getElementById('results');
+                    resultsContainer.innerHTML = '<p>Error loading results. Please try again later.</p>';
+                });
+        }
+
+        function createList() {
+            const resultsContainer = document.getElementById('results');
+            const listContainer = document.getElementById('listContents');
+            listContainer.innerHTML = ''; // Clear previous list contents
+
+            const options = resultsContainer.querySelectorAll('option');
+            const listName = document.getElementById('listName').value;
+            const movies = [];
+
+            options.forEach(option => {
+                movies.push(option.textContent);
+                const listItem = document.createElement('option');
+                listItem.textContent = option.textContent;
+                listContainer.appendChild(listItem);
+            });
+
+            if (listName) {
+                console.log(`List '${listName}' created with ${options.length} movies.`);
+                alert(`Creating list: ${listName} with ${options.length} movies`);
+
+                // Log the data before sending
+                const dataToSend = { listName: listName, movies: movies };
+                console.log('Data to send:', dataToSend);
+                alert('Data to send: ' + JSON.stringify(dataToSend));
+
+                // Send list data to the server
+                fetch('create_list.php', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(dataToSend)
+                })
+                .then(response => response.text())
+                .then(data => {
+                    console.log('Response:', data);
+                    alert('Response: ' + data);
+                    try {
+                        const jsonData = JSON.parse(data);
+                        console.log('List created successfully:', jsonData);
+                        alert('List created successfully: ' + JSON.stringify(jsonData));
+                    } catch (e) {
+                        console.error('Error parsing JSON:', e);
+                        alert('Error parsing JSON: ' + e + ' - Response: ' + data);
+                    }
+                })
+                .catch(error => {
+                    console.error('Error creating list:', error);
+                    alert('Error creating list: ' + error);
+                });
+            } else {
+                console.log('Please enter a name for your list.');
+                alert('Please enter a name for your list.');
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', fetchResults);
+    </script>
+</head>
+<body>
+    <h1>Results Page</h1>
+    <select id="results" size="10" style="width: 300px;"> <!-- JavaScript will populate this list box -->
+    </select>
+
+    <h2>List Contents</h2>
+    <select id="listContents" size="10" style="width: 300px;"> <!-- JavaScript will populate this list box -->
+    </select>
+
+    <!-- Text Box for List Name -->
+    <form action="#" method="post" style="margin-top: 20px;">
+        <label for="listName">Enter a name for your list:</label><br>
+        <input type="text" id="listName" name="listName" style="width: 300px;"><br>
+        <button type="button" onclick="createList()">Create List</button>
+        <button type="button">Open List</button>
+    </form>
+
+    <!-- Back to Search Button -->
+    <form action="search.html" method="get" style="margin-top: 20px;">
+        <button type="submit">Back to Search</button>
+    </form>
+<!-- Button to go to User Lists Page --> 
+<form action="UserListPage.html" method="get" style="margin-top: 20px;"> 
+	<button type="submit">Go to My Lists</button> 
+</form>
+ <script>
+	 document.addEventListener('DOMContentLoaded', () => { 
+	// Set the user ID in the hidden input field (replace with actual user ID) 
+	const userId = getUserId(); // Implement getUserId() to retrieve the logged-in user's ID 	document.getElementById('userIdInput').value = userId; 
+	}); 
+
+	function getUserId() { 
+	// Retrieve the user ID from the session or cookies 
+	// This function should return the user ID 
+	return 1; // Placeholder for user ID 
+	} 
+</body>
+</html>

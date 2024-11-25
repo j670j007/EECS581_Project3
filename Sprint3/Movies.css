@@ -1,0 +1,39 @@
+/* Team 17 - Brisa Andrade, 
+* Project 3: MovieList , 581 Software Engineering II, 11.07.2024 -->
+* Movies.css
+* This file is made up of the CCS Styling used to display movies after a user does a search, and in the discover webpage
+*/
+
+#imageHolder{
+    height:200;
+    width: 150;
+    background-color: 372C43;
+    border-radius: 3px;
+}
+
+.movie{
+    width:150;
+    text-align:center;
+    padding:10px;
+    }
+
+.movie a{
+    
+    text-decoration:none;
+    color: CEC3D3;
+    font-size: 14px;
+    font-family:"IBM Plex Sans", sans-serif; 
+    letter-spacing: 1px;
+    margin-top: 10;
+    }
+.movie p{
+    text-decoration:none;
+    color: 9058D8;
+    font-size: 12px;
+    font-family:"IBM Plex Sans", sans-serif; 
+    letter-spacing: 1px;
+    padding:0;
+    margin: 0;
+    }
+
+    

@@ -1,0 +1,166 @@
+<!-- Team 17 - Brisa Andrade-->
+<!--Project 2: MovieList , 581 Software Engineering II, 10.27.2024 -->
+<!-- DiscoverPage.html-->
+
+<!--
+* The MovieList discover displays a long list of movies in (grid view or in list view) and allows you to filter results to narrow down your search. This website is only available to logged in users.
+-->
+
+
+<html>
+    <head>
+        <!--Allows for use of Google fonts IBM Plex Sans and Baumans in the Website-->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Baumans&family=IBM+Plex+Sans&display=swap" rel="stylesheet">
+
+        <!--Connects css stylesheet to the current html file-->
+        <link rel="stylesheet" type="text/css" href="MovieListStyle.css">
+        <link rel="stylesheet" type="text/css" href="MovieListPopupStyle.css">
+        <link rel="stylesheet" type="text/css" href="Movies.css">
+
+        <script src="UserLogOn.js" type="text/javascript"></script>
+
+    </head>
+
+    <body>
+
+    <!--Navigation Header and Search Bar-->
+    <!--Outercontainer meant to control window size-->
+    <div class="window">
+
+        <!--Container holding elements for the navigation tab-->
+        <div class="navigationtab">
+            <p>MovieList</p>
+            <!--Input Field that allows user to search the database -->
+            <p></p>
+                <br />
+                <p>   Fill in the form to Search the Database  </p>
+                <form action="search.php" method="post">
+                    <label for="myTitle">Title:  </label>
+                    <input type="text" id="myTitle" name="myTitle" placeholder="Title"><br><br>
+                    <label for="Year">Year:   </label>
+                    <input type="text" id="Year" name="Year" placeholder="Year"><br><br>
+                    <label for="Genre">Genre: </label>
+                    <input type="text" id="Genre" name="Genre" placeholder="Genre"><br><br>
+                    <label for="Rating">Rating:</label>
+                    <input type="text" id="Rating" name="Rating" placeholder="Rating"><br><br>
+                    <button type="submit"> SEARCH </button>
+                </form>
+                <h1></h1>            
+        </div>
+
+        <div class="accountPopup" id="accountStart">
+            <form class="accountForm">
+                 <button type="button" class="closeBtn" onclick="popUpClose('accountStart')"> X </button>
+                 <p> Already have an account?</p>
+                 <button type="button" class="loginBtn" onclick="userLogin()"> Log In </button>
+                 <p>Ready to Start?</p>
+                 <button type="button" class="signupBtn" onclick="userSignup()">Create Account</button>
+            </form>
+        </div> <!--end accountPopup-->
+
+         <div class="loginPopup" id="userLoginForm">
+            <form class="loginForm"> <!--action = PHP form to connect database!-->
+                
+                 <button type="button" class="closeBtn" onclick="popUpClose('userLoginForm')"> X </button>
+                 <p id="emailLabel"> email<br></p>
+                 <input id= "emailText" type= "text" placeHolder=" ">
+                 <p id = "passwordLabel"><br>password</p>
+                 <input id= "passwordText" type= "password" placeHolder=" ">
+                
+                 <button type="button" class="login" onclick="logIn()"> Log In </button>
+            </form>
+        </div> <!--end loginPopup-->
+
+        <div class="signupPopup" id="userSignupForm">
+            <form class="signupForm"> <!--action = PHP form to connect database!-->
+                 <button type="button" class="closeBtn" onclick="popUpClose('userSignupForm')"> X </button>
+                 <p id="signupHeader" >     REGISTER NOW</p>
+                 <p id="signupEmailLabel">enter a valid email</p>
+                 <input id="signupEmailText" type= "text" placeHolder=" ">
+                 <p id="signupUsernameLabel">enter a username</p>
+                 <input id="signupUsernameText" type= "password" placeHolder=" ">
+                 <p id="signupPasswordLabel">enter a valid password</p>
+                 <input id="signupPasswordText" type= "password" placeHolder=" ">
+                 <p id="retypePasswordLabel">retype password</p>
+                 <input id= "retypePasswordText" type= "password" placeHolder=" ">
+                
+                 <button type="button" class="signup" onclick="userSignup()"> Sign Up! </button>
+            </form>
+        </div><!--end signupPopup-->
+
+        <!--DiscoverPage Web Page Starts Here-->
+
+        <!--Add In Filters Here-->>
+
+        <!--Movie Discovery Starts Here-->
+
+        <!--Single Move element-->
+        <div class="test">
+            <h2>Get ready to discover whats trending! As soon as this is done!</h2>
+        </div>
+
+        <div class= "dropDownMenu">
+        </div>
+        
+        <div class="movieCatalog">
+            
+            
+        </div>
+
+
+
+        <script>
+
+            // formats a movie poster image to fit specific dimensions in oder to be displayed properly
+            function formatImage(movieImage)
+            {
+            } // end formatImage
+            
+            function displayMovie(movieName, movieYear, movieImage, movieCount)
+            {
+                let movieId = "movie"+ movieNumber;
+
+                //creates a div container to hold onto movie info, adds it to "movie" class, and gives it an ID
+                const movieContainer = document.createElement("div");
+                movieContainer.className="movie";
+                movieContainer.id= movieid;
+
+                //create a div container to hold movie images and adds ID
+                const imageHolder = document.createElement("div");
+                imageHolder.id = "imageHolder";
+                //imageHolder.appendChild(movieImage); // appends movie poster image imageHolder element
+
+                movieContainer.appendChild(imageHolder);
+
+
+                //creates link element, sets textContent and adds it to movieContainer Object
+                
+
+                                            
+                //creates link object that will be added in 
+                //adds in movie release date
+
+                /*
+                <div class="movie">
+                <div id="imageHolder"></div>
+                <a href="#">Back to the Future 2</a>
+                <p>20XX</p>
+                </div>
+                */
+            }
+
+            //displays catalog 
+            displayMovieCatalog()
+            {
+                
+            }
+
+            //movies should be displayed in increments of 30, this movies more movies load in
+            loadMore()
+            {
+            }
+        </script>
+    </body>
+</html>

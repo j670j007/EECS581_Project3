@@ -1,0 +1,260 @@
+/* Team 17 - Brisa Andrade, 
+* Project 3: MovieList , 581 Software Engineering II, 10.29.2024 -->
+* MovieListPopupStyle.css
+* This file is made up of the CCS Styling used for the pop up forms a user interacts with with logging in / signing up for an account on MovieLIst
+*/
+
+        /*General Assests - includes close button, text styling, input field styling*/
+
+        
+        /*Close popUp Button*/
+        .loginForm .closeBtn, .signupForm .closeBtn, .accountForm .closeBtn{
+            background-color: 372C43;
+            border:none;
+            font-family: "IBM Plex Sans", sans-serif;
+            font-size: 18px;
+            color: CEC3D3;
+
+            position: relative;
+            top: 5;
+            float: right; /*button floats on the top righthand side*/
+            }
+
+
+         /*Log In Button and Sign Up Button Stylings -- in their respective pop ups*/
+        .loginForm .login, .signupForm .signup{
+            background-color: rgba(133, 83, 220); /*Button Accent color*/
+            border: none; 
+            color:CEC3D3; /*font color*/
+            text-algin: center; /*centers text*/
+            font-size: 20px;
+            font-family: "Baumans", regular;
+            height: 50; /*button height*/
+            width:324; /*button width*/
+            border-radius: 10px; /*rounds corners*/
+
+            position: fixed; /*Position of Button is fixed to window*/
+            }
+
+          /*Input Field Stylings*/
+        .loginForm input[type=text], .loginForm input[type=password], .signupForm input[type=text], .signupForm input[type=password] {
+            width: 300;
+            height: 30;
+            border-radius: 8px;
+            background-color: rgba(133, 83, 220, 0.3);
+            border:none;
+
+            color:CEC3D3;
+            }
+
+        /*Pop Up Label Text Stylings*/
+        .loginForm p, .signupForm p{ /*text labels on buttons*/
+            color: CEC3D3;
+            font-family: "Baumans", regular;
+            font-size: 16px;
+            }
+
+
+        /*Account Pop up refers to the pop up that appears to a user when trying to do anything involving an account on Movie List */
+
+        /*Account Pop Up*/
+        .accountPopup {
+            display: none; /*Keeps popup hidden until button is pressed.*/
+            position:fixed; /*Object will stay fixed to position, regardless of scrolling*/
+            top:200;
+            left:600;
+            }
+
+        /*form container*/
+        .accountForm {
+            width: 350;
+            height: 250;
+            border-radius: 10px;
+            padding: 10px;
+            background-color: 372C43
+            }
+
+        /*Log In and Sign Up Buttons*/
+        .accountForm .loginBtn , .accountForm .signupBtn{
+            background-color: rgba(133, 83, 220, 0.3); /*Button Accent color at 30% opacity*/
+            border: none; 
+            color:CEC3D3; /*font color*/
+            text-algin: center; /*centers text*/
+            font-size: 20px;
+            font-family: "Baumans", regular;
+            height: 50; /*button height*/
+            width:324; /*button width*/
+            border-radius: 10px; /*rounds corners*/
+
+            position: relative; /*Position of Button is relative to parent elements*/
+            top:5;
+            left:10; 
+            }
+
+        .accountForm p{ /*text labels on buttons*/
+            color: CEC3D3;
+            opacity: .5;
+            font-family: "Baumans", regular;
+            font-size: 16px;
+
+            position: relative;
+            top: 15;
+            left: 5;
+            
+            }
+
+
+
+        /*Log In Pop Up ask a user to submit the email and password that was previously used to create their user account on movieList*/
+
+        .loginPopup {
+            display: none; /*Keeps popup hidden until button is pressed.*/
+            position:fixed; /*Object will stay fixed to position, regardless of scrolling*/
+            top:200;
+            left:600;
+            }
+
+        /*form container*/
+        .loginForm {
+            width: 350;
+            height: 200;
+            border-radius: 10px;
+            padding: 10px;
+            background-color: 372C43;
+            }
+
+        /*Log In Pop Up Element Placement*/
+        .loginForm .login{
+            top:355;
+            left:625
+            }
+
+            #emailLabel{
+            position: fixed;
+            top: 210;
+            left: 630;
+                
+            }
+
+            #PasswordLabel{
+            position: fixed;
+            top: 250;
+            left: 630;
+            }
+
+            #emailText{
+            position: fixed;
+            left: 630;
+            top: 250;
+            padding:10px;
+            }
+
+            #passwordText{
+            position: fixed;
+            left: 630;
+            top:310; 
+            padding:10px;
+            }
+
+
+        /*Sign Up Pop Up appears to new users looking to open an account on MovieList*/
+        .signupPopup {
+            display: none; /*Keeps popup hidden until button is pressed.*/
+            position:fixed; /*Object will stay fixed to position, regardless of scrolling*/
+            top:150;
+            left:600;
+            }
+
+        /*form container*/
+        .signupForm {
+            width: 350;
+            height: 425;
+            border-radius: 10px;
+            padding: 10px;
+            background-color: 372C43;
+            }
+
+        
+        /*Sign Up popUp Element Placement*/
+        .signupForm .signup{
+            top:525;
+            left:625; 
+            }
+
+            #signupHeader{
+            color: 9058D8;
+            font-family: "Baumans", regular;
+            font-size: 20px;
+
+            text-align:center;
+            postion: fixed;
+            top: 400
+            }
+            
+            #signupEmailLabel{
+            position: fixed;
+            top: 210;
+            left: 630;
+                
+            }
+
+            #signupEmailText{
+            position: fixed;
+            left: 630;
+            top: 250;
+            padding:10px;
+            }
+
+            #signupUsernameLabel{
+            position: fixed;
+            top: 280;
+            left: 630;
+            }
+
+            #signupUsernameText{
+            position: fixed;
+            left: 630;
+            top:320; 
+            padding:10px;
+            }
+
+            #signupPasswordLabel{
+            position: fixed;
+            top: 350;
+            left: 630;
+            }
+
+            #signupPasswordText{
+            position: fixed;
+            left: 630;
+            top:390; 
+            padding:10px;
+            }
+
+             #retypePasswordLabel{
+            position: fixed;
+            top: 420;
+            left: 630;
+            }
+
+            #retypePasswordText{
+            position: fixed;
+            left: 630;
+            top:460; 
+            padding:10px;
+            }
+            
+
+            
+
+           
+
+
+
+
+
+
+
+
+
+        
