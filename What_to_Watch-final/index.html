@@ -1,0 +1,95 @@
+<!-- Team 17 - Brisa Andrade-->
+<!--Project 2: MovieList , 581 Software Engineering II, 10.27.2024 -->
+<!-- HomeScreen.html-->
+
+<!--
+* Creates a Navigation Header to be displayed with minimal changes across the entire movieList Website
+-->
+
+<html>
+    <head>
+        <!--Allows for use of Google fonts IBM Plex Sans and Baumans in the Website-->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Baumans&family=IBM+Plex+Sans&display=swap" rel="stylesheet">
+
+        <!--Connects css stylesheet to the current html file-->
+        <link rel="stylesheet" type="text/css" href="MovieListStyle.css">
+        <link rel="stylesheet" type="text/css" href="MovieListPopupStyle.css">
+
+        <script src="UserLogOn.js" type="text/javascript"></script>
+        <!--
+        <script src="UserSearch.js" type="text/javascript"></script>
+        -->
+
+    </head>
+
+    <body>
+
+    <!--Outercontainer meant to control window size-->
+    <div class="window">
+
+        <!--Container holding elements for the navigation tab-->
+        <div class="navigationtab">
+            <p>MovieList</p>
+
+            <!--Links to other parts of the website-->
+            <a href="#">Discover</a>
+            <a href="#"> Random Movie</a>
+            <a href="#">My Lists</a>
+            
+            <!--Button that allows for a user to log in or sign up-->
+            <button id ="logInButton" type="button" onclick="openPopUp('accountStart')">log in </button>
+            
+        </div>
+
+        <div class="accountPopup" id="accountStart">
+            <form class="accountForm">
+                 <button type="button" class="closeBtn" onclick="popUpClose('accountStart')"> X </button>
+                 <p> Already have an account?</p>
+                 <button type="button" class="loginBtn" onclick="userLogin()"> Log In </button>
+                 <p>Ready to Start?</p>
+                 <button type="button" class="signupBtn" onclick="userSignup()">Create Account</button>
+            </form>
+        </div> <!--end accountPopup-->
+
+         <div class="loginPopup" id="userLoginForm">
+            <form class="loginForm" method="post" action="mylogin.php"> <!--action = PHP form to connect database!-->
+                
+                 <button type="button" class="closeBtn" onclick="popUpClose('userLoginForm')"> X </button>
+                 <p id="emailLabel"> email<br></p>
+                 <input id= "emailText" type= "text" name= "emailText" placeHolder=" ">
+                 <p id = "passwordLabel"><br>password</p>
+                 <input id= "passwordText" type= "password" name= "passwordText" placeHolder=" ">
+                
+                 <button type="submit" class="login"> Log In </button>
+            </form>
+        </div> <!--end loginPopup-->
+
+        <div class="signupPopup" id="userSignupForm">
+            <form class="signupForm" method="post" action="register.php"> <!--action = PHP form to connect database!-->
+                 <button type="button" class="closeBtn" onclick="popUpClose('userSignupForm')"> X </button>
+                 <p id="signupHeader" >     REGISTER NOW</p>
+                 <p id="signupEmailLabel">enter a valid email</p>
+                 <input id="signupEmailText" type= "text" name="username" placeHolder=" ">
+                 <p id="signupUsernameLabel">enter a username</p>
+                 <input id="signupUsernameText" type= "password" name="username" placeHolder=" ">
+                 <p id="signupPasswordLabel">enter a valid password</p>
+                 <input id="signupPasswordText" type= "password" name="password" placeHolder=" ">
+                 <p id="retypePasswordLabel">retype password</p>
+                 <input id= "retypePasswordText" type= "password" name="password" placeHolder=" ">
+                
+                 <button type="sumbit" class="signup"> Sign Up! </button>
+            </form>
+        </div><!--end signupPopup-->
+
+        
+        <div class="test">
+            <br><br>
+            <h2>Log in to Continue. </h2>
+        </div>
+    
+    </div>  <!--  END WINDOW CLASS  -->
+
+    </body>
+</html>
